@@ -2,7 +2,7 @@
 CRUD JSF + CDI + HIBERNATE + Bootstrap
 
 
-## Configuracoes de Banco
+## Configuracoes de Banco -standalone.xml WildFly 10
 
 ```xml
 <datasource jndi-name="java:jboss/datasources/oracleProvaDS" pool-name="provaDS" enabled="true">
@@ -24,6 +24,8 @@ CRUD JSF + CDI + HIBERNATE + Bootstrap
    </driver>
 </drivers>
 ```
+
+
 
 ## Script Tabelas
 Link para o arquivo: [Script](https://github.com/marcusjpl/avaliacao1/blob/master/scriptSQL.sql)
