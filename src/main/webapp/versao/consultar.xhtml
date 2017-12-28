@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="style-admin.css" />
+</h:head>
+
+
+<h:body>
+
+	<h:form>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<li><h:link value="Prova" outcome="inicial" /></li>
+				<li><h:commandLink value="Logout" action="#{loginBean.logout}" /></li>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li></li>
+						<li><h:link value="Incluir" outcome="incluir" /></li>
+						<li><h:link value="Consultar" outcome="consultar" /></li>
+					</ul>
+				</div>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<h:messages />
+		<div class="container">
+
+
+			<h1>Consultar</h1>
+
+
+			<div class="row">
+				<h:outputLabel value="Código da versão" />
+				<h:inputText id="codigo"
+					value="#{versaoConsultaBean.versaoDTO.codigo}"
+					styleClass="form-control" />
+			</div>
+			<div class="row">
+				<h:outputLabel value="Número da Versão" />
+				<h:inputText styleClass="form-control"
+					value="#{versaoConsultaBean.versaoDTO.numero}" />
+			</div>
+			<div class="row">
+				<h:outputLabel value="Data da versão" />
+				<h:inputText id="dataVersao" disabled="true"
+					value="#{versaoConsultaBean.versaoDTO.data}"
+					styleClass="form-control" />
+				<h:message for="dataVersao" />
+			</div>
+
+			<hr />
+
+			<div class="row">
+				<h:outputLabel value="Item" />
+				<h:inputText id="titulo"
+					value="#{versaoConsultaBean.versaoDTO.tituloItem}"
+					styleClass="form-control" />
+				<h:message for="titulo" />
+			</div>
+
+			<div class="row">
+					<h:commandLink value="Consultar" action="#{versaoConsultaBean.consultar()}" style="padding-left: 20px;"/>
+					<h:commandLink value="Limpar" action="#{versaoConsultaBean.limpar}" style="padding-left: 20px;" />
+			</div>
+
+
+			<hr />
+			
+			<h:dataTable var="versao"
+				value="#{versaoConsultaBean.lista}"
+				class="table table-bordered table-striped table-hover">
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					#{versao.id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Número da versão</f:facet>
+					#{versao.nroVersao}
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandLink value="Editar" action="#{versaoAlterarBean.editar(versao)}"/>
+				</h:column>
+
+			</h:dataTable>
+
+		</div>
+	</h:form>
+</h:body>
+
+
+</html>

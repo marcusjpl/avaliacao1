@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="style-admin.css" />
+</h:head>
+
+
+<h:body>
+
+	<h:form>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<li><h:link value="Prova" outcome="inicial" /></li>
+				<li><h:commandLink value="Logout" action="#{loginBean.logout}"
+						immediate="true" /></li>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li></li>
+					<li><h:link value="Incluir" outcome="incluir" /></li>
+					<li><h:link value="Consultar" outcome="consultar" /></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		</nav>
+
+
+		<div class="container">
+			<h1>Alterar</h1>
+
+			<h:messages />
+
+			<div class="form-group">
+
+				<div class="row">
+					<div class="col-sm-4">
+						<h:outputLabel value="Código da versão" />
+						<h:inputText id="codigo" value="#{versaoAlterarBean.versao.id}"
+							disabled="true" styleClass="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-sm-4">
+						<h:outputLabel value="Data da versão" />
+						<h:inputText id="dataVersao"
+							value="#{versaoAlterarBean.versao.dataVersao}"
+							styleClass="form-control" />
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-sm-4">
+
+						<h:outputLabel value="Número da Versão" />
+						<h:inputText styleClass="form-control" id="nroVersao"
+							value="#{versaoAlterarBean.versao.nroVersao}" required="true" />
+						<h:message for="nroVersao" />
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-sm-2">
+						<h:outputLabel value="Liberado" />
+						<h:selectOneMenu value="#{versaoAlterarBean.versao.liberado}">
+							<f:selectItem itemValue="S" itemLabel="Sim" />
+							<f:selectItem itemValue="N" itemLabel="Não" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-sm-2">
+						<h:outputLabel value="Situacao" />
+						<h:selectOneMenu value="#{versaoAlterarBean.versao.situacao}">
+							<f:selectItem itemValue="A" itemLabel="Ativo" />
+							<f:selectItem itemValue="C" itemLabel="Cancelado" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+
+			<div class="row">
+				<div class="col-sm-4">
+					<h:outputLabel value="Item" />
+					<h:inputText id="titulo" value="#{versaoAlterarBean.itemTitulo}"
+						styleClass="form-control" />
+					<h:message for="titulo" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-5">
+					<h:outputLabel value="Descrição" />
+					<h:inputTextarea id="descricao"
+						value="#{versaoAlterarBean.itemDescricao}"
+						styleClass="form-control" />
+					<h:message for="descricao" />
+				</div>
+			</div>
+
+
+			<div class="row">
+				<h:commandLink value="Inserir Item"
+					action="#{versaoAlterarBean.inserirItem()}"
+					style="padding-left: 20px;" />
+			</div>
+
+			<hr />
+
+			<div class="row">
+				<h:commandButton value="Alterar"
+					action="#{versaoAlterarBean.alterar()}" />
+			</div>
+
+			<hr />
+
+			<h:dataTable var="item" value="#{versaoAlterarBean.versao.itens}"
+				class="table table-bordered table-striped table-hover">
+				<h:column>
+					<f:facet name="header">Título</f:facet>
+				#{item.titulo}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Descrição</f:facet>
+				#{item.descricao}
+			</h:column>
+
+				<h:column>
+					<f:facet name="header"></f:facet>
+
+					<h:commandLink value="Excluir"
+						action="#{versaoAlterarBean.excluirItem(item)}" />
+				</h:column>
+			</h:dataTable>
+
+
+
+		</div>
+	</h:form>
+</h:body>
+
+</html>
