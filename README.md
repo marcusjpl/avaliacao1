@@ -35,4 +35,5 @@ INSERT INTO PROVA.LOGIN(NOM_LOGIN,TXT_NOME) VALUES('admin','admin');
 ## Script Trigger
 Link para o arquivo: [Trigger](https://github.com/marcusjpl/avaliacao1/blob/master/trigger.sql)
 
-
+## Observacoes
+Nao existe relacao da PROVA.VERSAO com PROVA.LOGIN, somente após salvar dados de auditoria, então para trigger gravar o usuário da sessao, solucionei esse problema usando tabela temporaria no Oracle.
