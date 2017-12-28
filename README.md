@@ -25,7 +25,28 @@ CRUD JSF + CDI + HIBERNATE + Bootstrap
 </drivers>
 ```
 
+## persistence.xml
 
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="prova-dev" transaction-type="JTA">
+        <description>Dev persistence unit</description>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <!-- java transaction api || JNDI -->
+        <jta-data-source>java:jboss/datasources/oracleProvaDS</jta-data-source>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+```
 
 ## Script Tabelas
 Link para o arquivo: [Script](https://github.com/marcusjpl/avaliacao1/blob/master/scriptSQL.sql)
