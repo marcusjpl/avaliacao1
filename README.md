@@ -22,9 +22,6 @@ CRUD JSF + CDI + HIBERNATE + Bootstrap
    <driver name="oracle" module="com.oracle">
       <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
    </driver>
-   <driver name="h2" module="com.h2database.h2">
-      <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-   </driver>
 </drivers>
 ```
 
