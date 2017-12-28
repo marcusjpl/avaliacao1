@@ -26,7 +26,7 @@ CRUD JSF + CDI + HIBERNATE + Bootstrap
 ```
 
 ## Script Tabelas
-
+Link para o arquivo: [Script](https://github.com/marcusjpl/avaliacao1/blob/master/scriptSQL.sql)
 
 ## Script Trigger
-
+Link para o arquivo: [Trigger](https://github.com/marcusjpl/avaliacao1/blob/master/trigger.sql)
